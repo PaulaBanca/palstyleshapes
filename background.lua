@@ -4,8 +4,7 @@ background=M
 local display=display
 local math=math
 
-require "colourtools"
-local colourtools=colourtools
+local colourtools=require "colourtools"
 
 setfenv(1,M)
 
