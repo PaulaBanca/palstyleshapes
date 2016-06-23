@@ -3,21 +3,13 @@ foreground=M
 
 local display=display
 local math=math
+local folderOfThisFile = (...):match("(.-)[^%.]+$")
 
-require "bands"
-local bands=bands
-
-require "blocks"
-local blocks=blocks
-
-require "circles"
-local circles=circles
-
-require "triangles"
-local triangles=triangles
-
-require "pentagons"
-local pentagons=pentagons
+local bands=require (folderOfThisFile.."bands")
+local blocks=require (folderOfThisFile.."blocks")
+local circles=require (folderOfThisFile.."circles")
+local triangles=require (folderOfThisFile.."triangles")
+local pentagons=require (folderOfThisFile.."pentagons")
 
 setfenv(1,M)
 

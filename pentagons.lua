@@ -5,8 +5,8 @@ local display=display
 local math=math
 local print=print
 
-require "placer"
-local placer=placer
+local folderOfThisFile = (...):match("(.-)[^%.]+$")
+local placer=require (folderOfThisFile.."placer")
 
 setfenv(1,M)
 

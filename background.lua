@@ -4,13 +4,9 @@ background=M
 local display=display
 local math=math
 
-local colourtools=require "colourtools"
-
 setfenv(1,M)
 
-local colours=colourtools.goldenRatioColourGenerator()
-
-function create(w,h)
+function create(colourIterator,w,h)
   local group=display.newGroup()
   local style=math.random(4)
 
@@ -19,24 +15,24 @@ function create(w,h)
   display.setDefault("anchorY",0)
   if style==1 then
     local r=display.newRect(group,-hw,-hh,w,h)
-    r:setFillColor(colours(1,1))
+    r:setFillColor(colourIterator(1,1))
   elseif style==2 then
     local r1=display.newRect(group,-hw,-hh,hw,h)
     local r2=display.newRect(group,0,-hh,hw,h)
-    r1:setFillColor(colours(1,1))
-    r2:setFillColor(colours(1,1))
+    r1:setFillColor(colourIterator(1,1))
+    r2:setFillColor(colourIterator(1,1))
   elseif style==3 then
     local r1=display.newRect(group,-hw,-hh,w,hh)
     local r2=display.newRect(group,-hw,0,w,hh)
-    r1:setFillColor(colours(1,1))
-    r2:setFillColor(colours(1,1))
+    r1:setFillColor(colourIterator(1,1))
+    r2:setFillColor(colourIterator(1,1))
   else
     local r1=display.newRect(group,-hw,-hh,hw,hh)
     local r2=display.newRect(group,-hw,0,hw,hh)
     local r3=display.newRect(group,0,-hh,hw,hh)
     local r4=display.newRect(group,0,0,hw,hh)
-    local c1r,c1g,c1b=colours(1,1)
-    local c2r,c2g,c2b=colours(1,1)
+    local c1r,c1g,c1b=colourIterator(1,1)
+    local c2r,c2g,c2b=colourIterator(1,1)
     
     r1:setFillColor(c1r,c1g,c1b)
     r2:setFillColor(c2r,c2g,c2b)
